@@ -44,30 +44,36 @@ but it contains multiple syntax errors that prevent it from being parsed.
 // 🔍 Provided JSON File with Errors
 // ============================================
 
-const invalidBookingJSON = `
+const invalidBookingJSON = 
+//Step1: I removed the backticks from the overall structure because they don't belong in a JSON file and would prevent the file from running at all.
 {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
+  "checkInDate": "2024-05-15",
+  //Step2: I added a missing comma after the date for "checkInDate".
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      name: "Alice Johnson",
+      "name": "Alice Johnson",
+      //Step3: I added missing double quotes around the key for name above.
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
-      "email": "bob.smith@example"
+      "age": null,
+      //Step4: I switched the 'undefined' value in 'age' to null because you cannot use undefined in JSON.
+      "email": "bob.smith@example.com"
+      //Step5: I added the missing '.com' to 'bob.smith@example' because it will not recognize it as an email without it.
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking"]
+    //Step6: I removed the extra comma behind "Parking" above because it would have invalidated the array it was in if it were left.
   }
 }
-`;
+//Step7: I removed the semicolon at the end because that is invalid for JSON formatting.
 
 
 // ============================================
